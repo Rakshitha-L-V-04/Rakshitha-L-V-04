@@ -189,8 +189,7 @@ def build(days, total, repos, followers, now):
     # ---- panel 1: contribution heatmap ----
     a('<rect x="24" y="22" width="952" height="250" rx="12" fill="#050d06" stroke="#123f1b"/>')
     a('<g font-size="13">')
-    a('<circle cx="46" cy="42" r="5" fill="#ff5f56"/><circle cx="64" cy="42" r="5" fill="#ffbd2e"/><circle cx="82" cy="42" r="5" fill="#27c93f"/>')
-    a(f'<text x="104" y="46" class="d">~/{esc(USER)} $ ./contributions --last-year</text>')
+    a(f'<text x="48" y="46" class="d">~/{esc(USER)} $ ./contributions --last-year</text>')
     a(f'<text x="952" y="46" class="d" text-anchor="end">synced {now:%Y-%m-%d %H:%M} UTC</text>')
     a('</g>')
     clip = typed_smooth(o, "ty-head", 44, 60, 520, 34, 0.2, 1.8, steps=30)
