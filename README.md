@@ -1,10 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Rakshitha%20Lakshmikanth%20Vanishree&fontSize=38&fontColor=ffffff&fontAlignY=36&animation=fadeIn&desc=Software%20Developer%20%E2%80%A2%20GenAI%20and%20LLM%20Engineer%20%E2%80%A2%20M.Sc.%20CS%20%40%20RPTU&descSize=17&descAlignY=58" alt="Rakshitha Lakshmikanth Vanishree: Software Developer, GenAI & LLM Engineer, M.Sc. CS @ RPTU" width="100%"/>
-</p>
-
-<p align="center">
-  <b>M.Sc. Computer Science student @ RPTU Kaiserslautern-Landau</b> · ex-Application Software Developer @ <b>Enverus</b><br/>
-  Building with LLMs, RAG &amp; AI agents · Data apps · Signal processing
+  <img src="./profile-card.svg" alt="Rakshitha Lakshmikanth Vanishree: M.Sc. Computer Science student at RPTU, ex-Software Developer at Enverus, focused on Generative AI, RAG and AI agents" width="100%"/>
 </p>
 
 <p align="center">
@@ -16,18 +11,6 @@
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=Rakshitha-L-V-04&label=Profile%20views&color=0e75b6&style=flat" alt="Profile views"/>
 </p>
-
----
-
-## 👩‍💻 About me
-
-- 🎓 Pursuing an **M.Sc. in Computer Science** at **RPTU Kaiserslautern-Landau**, Germany
-- 💼 **4+ years** as an Application Software Developer at **Enverus**, Bengaluru (2021–2025)
-- 🔭 Currently working on **Generative AI**: RAG, GraphRAG, agentic workflows, LLM evaluation and fine-tuning
-- 🌱 Currently exploring **multi-agent systems for code generation**
-- 👯 Looking for **Werkstudent / HiWi** roles in software engineering, AI/ML or data
-- 💬 Ask me about **Python, LLM apps, RAG pipelines and data dashboards**
-- 🌍 English (C1) · Deutsch (A2)
 
 ---
 
@@ -104,7 +87,3 @@
 </p>
 
 I'm happy to talk about Werkstudent roles, research assistant positions or GenAI projects. ✨
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=120&section=footer" width="100%" alt=""/>
-</p>
