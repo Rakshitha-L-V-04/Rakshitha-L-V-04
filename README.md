@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Rakshitha%20Lakshmikanth%20Vanishree&fontSize=38&fontColor=ffffff&fontAlignY=36&animation=fadeIn&desc=Software%20Developer%20%E2%80%A2%20GenAI%20%26%20LLM%20Engineer%20%E2%80%A2%20M.Sc.%20CS%20%40%20RPTU&descSize=17&descAlignY=58" alt="Rakshitha Lakshmikanth Vanishree: Software Developer, GenAI & LLM Engineer, M.Sc. CS @ RPTU" width="100%"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Rakshitha%20Lakshmikanth%20Vanishree&fontSize=38&fontColor=ffffff&fontAlignY=36&animation=fadeIn&desc=Software%20Developer%20%E2%80%A2%20GenAI%20and%20LLM%20Engineer%20%E2%80%A2%20M.Sc.%20CS%20%40%20RPTU&descSize=17&descAlignY=58" alt="Rakshitha Lakshmikanth Vanishree: Software Developer, GenAI & LLM Engineer, M.Sc. CS @ RPTU" width="100%"/>
 </p>
 
 <p align="center">
