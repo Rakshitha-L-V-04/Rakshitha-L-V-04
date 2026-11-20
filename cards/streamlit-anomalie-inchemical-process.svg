@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="190" viewBox="0 0 480 190" font-family="'JetBrains Mono','Fira Code',Consolas,'DejaVu Sans Mono',monospace" xml:space="preserve">
+<defs>
+<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.1" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+<pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="2" fill="#000" opacity="0.18"/></pattern>
+</defs>
+<style>
+text{white-space:pre}.t{fill:#39ff14}.d{fill:#1f7a2e}.m{fill:#8dff7a}.w{fill:#d8ffd0}
+.blink{animation:b 1.1s steps(1) infinite}@keyframes b{50%{opacity:0}}
+.pulse{animation:p 2.4s ease-in-out infinite}@keyframes p{50%{opacity:.35}}
+.dash{stroke-dasharray:6 8;animation:ds 1.2s linear infinite}@keyframes ds{to{stroke-dashoffset:-28}}
+.breathe{animation:br 3s ease-in-out infinite}@keyframes br{50%{stroke-opacity:.35}}
+</style>
+<rect width="480" height="190" rx="16" fill="#030803"/>
+<rect x="1" y="1" width="478" height="188" rx="16" fill="none" stroke="#0f3d18" stroke-width="2"/>
+<text x="24" y="40" font-size="12" class="d">~/streamlit-anomalie-inchemical-process</text>
+<rect x="394" y="25" width="62" height="20" rx="4" fill="#0b2a12" stroke="#39ff14"/><text x="425" y="39" font-size="11" class="t" text-anchor="middle"><tspan class="pulse">●</tspan> ACTIVE</text>
+<text x="24" y="74" font-size="22" font-weight="800" class="t" filter="url(#soft)">Chemical Process Anomalies</text>
+<text x="24" y="100" font-size="12.5" class="w">Interactive Streamlit dashboard for anomalies in</text>
+<text x="24" y="118" font-size="12.5" class="w">batch distillation sensor data</text>
+<circle cx="30" cy="140" r="5" fill="#3572A5"/><text x="42" y="144" font-size="12" class="m">Python</text>
+<text x="200" y="144" font-size="12" class="m">★ 0   ⑂ 0</text>
+<text x="24" y="168" font-size="11.5" class="d">last commit 52m ago · <tspan class="m">Add README for chemical process anomal</tspan></text>
+<rect x="10" y="10" width="460" height="170" rx="12" fill="none" stroke="#39ff14" stroke-opacity=".35" class="breathe"/>
+<rect width="480" height="190" rx="16" fill="url(#scan)" pointer-events="none"/>
+</svg>
