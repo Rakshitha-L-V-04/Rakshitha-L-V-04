@@ -137,6 +137,26 @@ def profile_stats():
         return None, None
 
 
+def typed(o, cid, x, y, w, h, t0, t1, dur=14):
+    """Clip rect that 'types' text in between t0..t1 seconds, looping every dur seconds."""
+    k0, k1 = t0 / dur, t1 / dur
+    o.append(f'<clipPath id="{cid}"><rect x="{x}" y="{y}" width="{w}" height="{h}">'
+             f'<animate attributeName="width" values="0;0;{w};{w}" keyTimes="0;{k0:.3f};{k1:.3f};1" '
+             f'dur="{dur}s" repeatCount="indefinite" calcMode="discrete"/></rect></clipPath>')
+    return f'clip-path="url(#{cid})"'
+
+
+def typed_smooth(o, cid, x, y, w, h, t0, t1, dur=14, steps=None):
+    k0, k1 = t0 / dur, t1 / dur
+    n = steps or 24
+    vals = ["0"] + [f"{w * i / n:.1f}" for i in range(n + 1)] + [f"{w}"]
+    keys = [0] + [k0 + (k1 - k0) * i / n for i in range(n + 1)] + [1]
+    o.append(f'<clipPath id="{cid}"><rect x="{x}" y="{y}" width="{w}" height="{h}">'
+             f'<animate attributeName="width" values="{";".join(vals)}" keyTimes="{";".join(f"{k:.4f}" for k in keys)}" '
+             f'dur="{dur}s" repeatCount="indefinite" calcMode="discrete"/></rect></clipPath>')
+    return f'clip-path="url(#{cid})"'
+
+
 def esc(s):
     return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
@@ -151,6 +171,7 @@ def build(days, total, repos, followers, now):
 <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <filter id="soft" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="2" fill="#000" opacity="0.18"/></pattern>
+<linearGradient id="roll" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#39ff14" stop-opacity="0"/><stop offset=".5" stop-color="#39ff14" stop-opacity=".06"/><stop offset="1" stop-color="#39ff14" stop-opacity="0"/></linearGradient>
 <radialGradient id="vig" cx="50%" cy="45%" r="75%"><stop offset="60%" stop-color="#000" stop-opacity="0"/><stop offset="100%" stop-color="#000" stop-opacity="0.55"/></radialGradient>
 </defs>
 <style>
@@ -158,6 +179,9 @@ def build(days, total, repos, followers, now):
 .blink{animation:b 1.1s steps(1) infinite}@keyframes b{50%{opacity:0}}
 .pulse{animation:p 3s ease-in-out infinite}@keyframes p{50%{opacity:.55}}
 .boot{animation:f .9s ease-out both}@keyframes f{from{opacity:0}to{opacity:1}}
+.wave{opacity:0;animation:wv 5s linear infinite}@keyframes wv{0%{opacity:0}4%{opacity:.55}14%{opacity:0}100%{opacity:0}}
+.fl{animation:fl 2.4s steps(2) infinite}@keyframes fl{0%,70%{opacity:1}75%{opacity:.15}80%{opacity:1}90%{opacity:.4}}
+.gl{animation:gl 7s steps(1) infinite}@keyframes gl{0%,93%,100%{transform:translate(0,0)}94%{transform:translate(3px,0)}96%{transform:translate(-2px,0)}98%{transform:translate(1px,0)}}
 </style>""")
     a(f'<rect width="{W}" height="{H}" rx="18" fill="#030803"/>')
     a(f'<rect x="1" y="1" width="{W-2}" height="{H-2}" rx="18" fill="none" stroke="#0f3d18" stroke-width="2"/>')
@@ -169,7 +193,8 @@ def build(days, total, repos, followers, now):
     a(f'<text x="104" y="46" class="d">~/{esc(USER)} $ ./contributions --last-year</text>')
     a(f'<text x="952" y="46" class="d" text-anchor="end">synced {now:%Y-%m-%d %H:%M} UTC</text>')
     a('</g>')
-    a(f'<text x="48" y="84" font-size="22" font-weight="700" class="t" filter="url(#soft)">{total:,} contributions in the last year</text>')
+    clip = typed_smooth(o, "ty-head", 44, 60, 520, 34, 0.2, 1.8, steps=30)
+    a(f'<text x="48" y="84" font-size="22" font-weight="700" class="t" filter="url(#soft)" {clip}>{total:,} contributions in the last year</text>')
 
     dates = list(days)
     if dates:
@@ -190,6 +215,11 @@ def build(days, total, repos, followers, now):
         a(f'<rect x="{x}" y="{y}" width="{cell}" height="{cell}" rx="2.5" fill="{GREEN[lv]}"{f}><title>{title}</title></rect>')
         if d.day <= 7 and row == 0:
             months[col] = d.strftime("%b")
+    ncols = max(((dt.date.fromisoformat(ds) - start).days // 7 for ds in days), default=52) + 1
+    for col in range(ncols):
+        x = x0 + col * (cell + gap) - 1
+        a(f'<rect class="wave" x="{x}" y="{y0 - 1}" width="{cell + 2}" height="{7 * (cell + gap) - gap + 2}" rx="3" '
+          f'fill="#39ff14" style="animation-delay:{col * 0.06:.2f}s" filter="url(#glow)"/>')
     for col, name in months.items():
         a(f'<text x="{x0 + col * (cell + gap)}" y="{y0 - 10}" font-size="11" class="d">{name}</text>')
     cur, best = streaks(days)
@@ -205,8 +235,10 @@ def build(days, total, repos, followers, now):
     a('<rect x="24" y="290" width="952" height="400" rx="12" fill="#050d06" stroke="#123f1b"/>')
     a('<g class="boot">')
     a('<text x="48" y="326" font-size="12" class="d">&gt; PROFILE BOOT SEQUENCE ............................. [ OK ]</text>')
-    a('<text x="48" y="384" font-size="44" font-weight="800" class="t" filter="url(#glow)" letter-spacing="2">RAKSHITHA</text>')
-    a('<text x="48" y="420" font-size="22" font-weight="700" class="m" letter-spacing="1.5">LAKSHMIKANTH VANISHREE</text>')
+    c1 = typed_smooth(o, "ty-n1", 40, 340, 300, 56, 1.8, 3.0, steps=9)
+    c2 = typed_smooth(o, "ty-n2", 40, 398, 380, 30, 3.0, 4.2, steps=22)
+    a(f'<g class="gl"><text x="48" y="384" font-size="44" font-weight="800" class="t" filter="url(#glow)" letter-spacing="2" {c1}>RAKSHITHA</text></g>')
+    a(f'<text x="48" y="420" font-size="22" font-weight="700" class="m" letter-spacing="1.5" {c2}>LAKSHMIKANTH VANISHREE</text>')
     tags = ["GenAI", "RAG", "AI Agents", "Python", "LLMs"]
     tx = 48
     for tg in tags:
@@ -223,7 +255,8 @@ def build(days, total, repos, followers, now):
     ]
     for i, (k, v) in enumerate(lines):
         y = 494 + i * 24
-        a(f'<text x="48" y="{y}" font-size="14"><tspan class="d">$ {k.strip()}</tspan><tspan x="112" class="d">→</tspan><tspan x="134" class="w">{esc(v)}</tspan></text>')
+        cl = typed_smooth(o, f"ty-l{i}", 44, y - 16, 560, 22, 4.6 + i * 1.0, 5.4 + i * 1.0, steps=20)
+        a(f'<text x="48" y="{y}" font-size="14" {cl}><tspan class="d">$ {k.strip()}</tspan><tspan x="112" class="d">→</tspan><tspan x="134" class="w">{esc(v)}</tspan></text>')
     stats = [("repos", repos), ("followers", followers), ("streak", f"{cur}d"), ("best", f"{best}d")]
     sx = 48
     for k, v in stats:
@@ -238,7 +271,10 @@ def build(days, total, repos, followers, now):
     px, py, ps = 676, 318, 4.4
     n = len(PORTRAIT)
     a(f'<rect x="{px - 12}" y="{py - 12}" width="{n * ps + 24:.0f}" height="{n * ps + 24:.0f}" rx="10" fill="#020602" stroke="#2fe05a" stroke-opacity=".6"/>')
-    a('<g filter="url(#soft)">')
+    ph = n * ps
+    a(f'<clipPath id="pt-reveal"><rect x="{px}" y="{py}" width="{n * ps:.1f}" height="{ph:.1f}">'
+      f'<animate attributeName="height" values="0;{ph:.1f};{ph:.1f}" keyTimes="0;0.25;1" dur="14s" repeatCount="indefinite"/></rect></clipPath>')
+    a('<g filter="url(#soft)" clip-path="url(#pt-reveal)">')
     for y, row in enumerate(PORTRAIT):
         x = 0
         while x < len(row):
@@ -249,12 +285,20 @@ def build(days, total, repos, followers, now):
             run = 1
             while x + run < len(row) and row[x + run] == ch:
                 run += 1
-            a(f'<rect x="{px + x * ps:.1f}" y="{py + y * ps:.1f}" width="{run * ps - 0.6:.1f}" height="{ps - 0.6:.1f}" fill="{PIX[int(ch)]}"/>')
+            fl = ""
+            if ch in "45" and (x * 7 + y * 13) % 23 == 0:
+                fl = f' class="fl" style="animation-delay:{((x * 31 + y * 17) % 24) / 10:.1f}s"'
+            a(f'<rect x="{px + x * ps:.1f}" y="{py + y * ps:.1f}" width="{run * ps - 0.6:.1f}" height="{ps - 0.6:.1f}" fill="{PIX[int(ch)]}"{fl}/>')
             x += run
     a('</g>')
+    a(f'<rect x="{px - 4}" y="{py}" width="{n * ps + 8:.1f}" height="3" fill="#b6ff9e" opacity=".75" filter="url(#glow)">'
+      f'<animate attributeName="y" values="{py};{py + ph:.1f};{py}" dur="4s" repeatCount="indefinite"/>'
+      f'<animate attributeName="opacity" values=".8;.35;.8" dur="4s" repeatCount="indefinite"/></rect>')
     a(f'<text x="{px + n * ps / 2:.0f}" y="{py + n * ps + 30:.0f}" font-size="11" class="d" text-anchor="middle">portrait.svg // rendered from code</text>')
 
     a(f'<rect width="{W}" height="{H}" rx="18" fill="url(#scan)" pointer-events="none"/>')
+    a(f'<rect x="0" y="0" width="{W}" height="70" fill="url(#roll)" pointer-events="none">'
+      f'<animate attributeName="y" values="-70;{H}" dur="6s" repeatCount="indefinite"/></rect>')
     a(f'<rect width="{W}" height="{H}" rx="18" fill="url(#vig)" pointer-events="none"/>')
     a("</svg>")
     return "\n".join(o)
