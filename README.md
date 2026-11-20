@@ -14,31 +14,28 @@
 
 ---
 
+## ⚡ Recruiter mode
+
+<p align="center">
+  <img src="./terminal.svg" alt="Animated terminal: whoami, experience log, tech stack, latest commit and hire_me for Werkstudent / HiWi roles" width="100%"/>
+</p>
+
+## 🧠 How I build GenAI
+
+<p align="center">
+  <img src="./rag-pipeline.svg" alt="Animated RAG pipeline: docs, embeddings, retrieval with Chroma and Neo4j, LLM, answer with references, evaluated with DeepEval" width="100%"/>
+</p>
+
 ## 🚀 Featured projects
 
 <table>
   <tr>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/Rakshitha-L-V-04/Gen-AI">🤖 Gen-AI</a></h3>
-      <p>Hands-on LLM notebooks: RAG with references, GraphRAG on Neo4j, ReAct tool-calling agents, DeepEval evaluation (faithfulness, hallucination), LoRA/QLoRA fine-tuning of Mistral 7B, and a character-level GPT built from scratch.</p>
-      <p><code>PyTorch</code> <code>LangChain</code> <code>Hugging Face</code> <code>Chroma</code> <code>Neo4j</code></p>
-    </td>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/Rakshitha-L-V-04/streamlit-anomalie-inchemical-process">⚗️ Anomalies in Chemical Processes</a></h3>
-      <p>Interactive dashboard for a batch-distillation dataset: sensor signals over time, normal vs. anomalous runs, and anomaly durations by operating point.</p>
-      <p><code>Streamlit</code> <code>Plotly</code> <code>pandas</code></p>
-    </td>
+    <td width="50%"><a href="https://github.com/Rakshitha-L-V-04/Gen-AI"><img src="./cards/Gen-AI.svg" alt="Gen-AI project card" width="100%"/></a></td>
+    <td width="50%"><a href="https://github.com/Rakshitha-L-V-04/streamlit-anomalie-inchemical-process"><img src="./cards/streamlit-anomalie-inchemical-process.svg" alt="Chemical Process Anomalies project card" width="100%"/></a></td>
   </tr>
   <tr>
-    <td width="50%" valign="top">
-      <h3><a href="https://github.com/Rakshitha-L-V-04/kalman-filter-noisy-sensor-data">📡 Kalman Filter for Noisy Sensor Data</a></h3>
-      <p>Kalman filter that estimates position and velocity from noisy measurements, with synthetic data generation, result plots and unit tests.</p>
-      <p><code>NumPy</code> <code>Matplotlib</code> <code>pytest</code></p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>🧪 More coming soon</h3>
-      <p>Research on single-agent vs. agent-team code generation and more GenAI experiments.</p>
-    </td>
+    <td width="50%"><a href="https://github.com/Rakshitha-L-V-04/kalman-filter-noisy-sensor-data"><img src="./cards/kalman-filter-noisy-sensor-data.svg" alt="Kalman Filter project card" width="100%"/></a></td>
+    <td width="50%" align="center"><b>🧪 More coming soon</b><br/><sub>single-agent vs. agent-team code generation and more GenAI experiments</sub></td>
   </tr>
 </table>
 
@@ -71,10 +68,6 @@
 
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=Rakshitha-L-V-04&theme=tokyonight&hide_border=true" alt="GitHub streak"/>
-</p>
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Rakshitha-L-V-04&theme=tokyo-night&hide_border=true&area=true" alt="Contribution graph"/>
 </p>
 
 ---
