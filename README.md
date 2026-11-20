@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&pause=1000&color=2F81F7&center=true&vCenter=true&width=600&lines=Hi%2C+I'm+Rakshitha+%F0%9F%91%8B;M.Sc.+Computer+Science+%40+RPTU;Generative+AI+%7C+RAG+%7C+AI+Agents; Software+Developer+%7C+4%2B+years+experience" alt="Typing intro"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=220&section=header&text=Rakshitha%20Lakshmikanth%20Vanishree&fontSize=38&fontColor=ffffff&fontAlignY=36&animation=fadeIn&desc=Software%20Developer%20%E2%80%A2%20GenAI%20%26%20LLM%20Engineer%20%E2%80%A2%20M.Sc.%20CS%20%40%20RPTU&descSize=17&descAlignY=58" alt="Rakshitha Lakshmikanth Vanishree: Software Developer, GenAI & LLM Engineer, M.Sc. CS @ RPTU" width="100%"/>
 </p>
 
 <p align="center">
@@ -24,7 +24,7 @@
 - 🎓 Pursuing an **M.Sc. in Computer Science** at **RPTU Kaiserslautern-Landau**, Germany
 - 💼 **4+ years** as an Application Software Developer at **Enverus**, Bengaluru (2021–2025)
 - 🔭 Currently working on **Generative AI**: RAG, GraphRAG, agentic workflows, LLM evaluation and fine-tuning
-- 🌱 Currently learning **German** (A2) and multi-agent systems for code generation
+- 🌱 Currently exploring **multi-agent systems for code generation**
 - 👯 Looking for **Werkstudent / HiWi** roles in software engineering, AI/ML or data
 - 💬 Ask me about **Python, LLM apps, RAG pipelines and data dashboards**
 - 🌍 English (C1) · Deutsch (A2)
@@ -104,3 +104,7 @@
 </p>
 
 I'm happy to talk about Werkstudent roles, research assistant positions or GenAI projects. ✨
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=120&section=footer" width="100%" alt=""/>
+</p>
