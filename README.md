@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="./profile-card.svg" alt="Rakshitha Lakshmikanth Vanishree: M.Sc. Computer Science student at RPTU, ex-Software Developer at Enverus, focused on Generative AI, RAG and AI agents" width="100%"/>
+  <img src="./profile-neon.svg" alt="Rakshitha Lakshmikanth Vanishree: neon terminal profile with live GitHub contribution heatmap, M.Sc. Computer Science at RPTU, GenAI, RAG and AI agents" width="100%"/>
 </p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/rakshithalv"><img src="https://img.shields.io/badge/LinkedIn-Rakshitha%20L%20V-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-  <img src="https://img.shields.io/badge/Kaiserslautern-Germany-555?style=for-the-badge&logo=googlemaps&logoColor=white" alt="Location"/>
-  <img src="https://img.shields.io/badge/Open%20to-Werkstudent%20%2F%20HiWi-2ea44f?style=for-the-badge" alt="Open to Werkstudent / HiWi"/>
+  <a href="https://www.linkedin.com/in/rakshithalv"><img src="https://img.shields.io/badge/LINKEDIN-030803?style=for-the-badge&logo=linkedin&logoColor=39ff14" alt="LinkedIn"/></a>
+  <a href="https://github.com/Rakshitha-L-V-04?tab=repositories"><img src="https://img.shields.io/badge/PROJECTS-030803?style=for-the-badge&logo=github&logoColor=39ff14" alt="Projects"/></a>
+  <img src="https://img.shields.io/badge/OPEN%20TO-WERKSTUDENT%20%2F%20HIWI-39ff14?style=for-the-badge&labelColor=030803" alt="Open to Werkstudent / HiWi"/>
 </p>
 
 <p align="center">
