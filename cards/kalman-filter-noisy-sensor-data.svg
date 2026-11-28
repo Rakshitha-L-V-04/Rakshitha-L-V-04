@@ -20,7 +20,7 @@ text{white-space:pre}.t{fill:#39ff14}.d{fill:#1f7a2e}.m{fill:#8dff7a}.w{fill:#d8
 <text x="24" y="118" font-size="12.5" class="w">from noisy sensor data, with tests</text>
 <circle cx="30" cy="140" r="5" fill="#3572A5"/><text x="42" y="144" font-size="12" class="m">Python</text>
 <text x="200" y="144" font-size="12" class="m">★ 0   ⑂ 0</text>
-<text x="24" y="168" font-size="11.5" class="d">last commit 6d ago · <tspan class="m">Add README for Kalman filter project</tspan></text>
+<text x="24" y="168" font-size="11.5" class="d">last commit 7d ago · <tspan class="m">Add README for Kalman filter project</tspan></text>
 <rect x="10" y="10" width="460" height="170" rx="12" fill="none" stroke="#39ff14" stroke-opacity=".35" class="breathe"/>
 <rect width="480" height="190" rx="16" fill="url(#scan)" pointer-events="none"/>
 </svg>
